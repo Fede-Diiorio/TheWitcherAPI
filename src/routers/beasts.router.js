@@ -1,17 +1,11 @@
-import { Router } from 'express';
-import dbConfig from '../dbConfig.js';
+import { Router } from "express";
+import BeastController from "../controller/beasts.controller.js";
 
 const router = Router();
 
 // Obtener todos los usuarios
-router.get('/', async (req, res) => {
-    try {
-      const [rows] = await dbConfig.query('SELECT * FROM monsters');
-      res.json(rows);
-    } catch (error) {
-      res.status(500).json({ error: error.message });
-    }
-  });
+// router.get("/", async (req, res) => {});
+
+router.get("/", async (_, res) => new BeastController().getAllBeasts(res));
 
 export default router;
-  
