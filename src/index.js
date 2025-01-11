@@ -1,7 +1,7 @@
-const express = require('express');
-const dbCofig = require('./dbConfig'); // Importa la conexión
+import express from 'express';
 const app = express();
-const routerMonsters = require('./routers/beasts.router');
+
+import routerMonsters from './routers/beasts.router.js';
 
 // Middleware
 app.use(express.json());

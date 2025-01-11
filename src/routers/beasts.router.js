@@ -1,5 +1,6 @@
-const {Router} = require('express');
-const dbConfig = require('../dbConfig');
+import { Router } from 'express';
+import dbConfig from '../dbConfig.js';
+
 const router = Router();
 
 // Obtener todos los usuarios
@@ -12,5 +13,5 @@ router.get('/', async (req, res) => {
     }
   });
 
-module.exports = router;
+export default router;
   
