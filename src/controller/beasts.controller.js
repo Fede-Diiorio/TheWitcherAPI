@@ -19,4 +19,15 @@ export default class BeastController {
       res.status(500).json({ error: error.message });
     }
   }
+
+  async getBeastById(req, res) {
+    try {
+      const beastId = parseInt(req.params.beastId);
+      const beast = await this.#beastRepository.getBeastById(beastId);
+
+      res.json(beast);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  }
 }

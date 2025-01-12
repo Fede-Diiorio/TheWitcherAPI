@@ -17,4 +17,20 @@ export default class BeastRepository {
     );
     return rows;
   }
+
+  async getBeastById(beastId) {
+    const [rows] = await dbConfig.query(
+      ` SELECT 
+	        m.id, 
+          c.name AS category, 
+          m.name, 
+          m.hability, 
+          m.description 
+        FROM monsters AS m
+        INNER JOIN categories AS c ON (c.id = m.id_category)
+        WHERE m.id = ?;`,
+      [beastId]
+    );
+    return rows;
+  }
 }

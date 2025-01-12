@@ -7,4 +7,7 @@ router.get("/", async (req, res) =>
   new BeastController().getAllBeasts(req, res)
 );
 
+router.get("/:beastId", (req, res) =>
+  new BeastController().getBeastById(req, res)
+);
 export default router;
