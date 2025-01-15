@@ -30,4 +30,16 @@ export default class BeastController {
       res.status(500).json({ error: error.message });
     }
   }
+
+  async getBeastsByCategory(req, res) {
+    try {
+      const category = req.params.category;
+      console.log(category);
+      const beasts = await this.#beastRepository.getBeastsByCategory(category);
+
+      res.json(beasts);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  }
 }

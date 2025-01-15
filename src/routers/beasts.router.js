@@ -10,4 +10,8 @@ router.get("/", async (req, res) =>
 router.get("/:beastId", (req, res) =>
   new BeastController().getBeastById(req, res)
 );
+
+router.get("/:category", (req, res) =>
+  new BeastController().getBeastsByCategory(req, res)
+);
 export default router;
