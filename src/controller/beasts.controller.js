@@ -33,8 +33,7 @@ export default class BeastController {
 
   async getBeastsByCategory(req, res) {
     try {
-      const category = req.params.category;
-      console.log(category);
+      const category = req.params.beastCategory;
       const beasts = await this.#beastRepository.getBeastsByCategory(category);
 
       res.json(beasts);

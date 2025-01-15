@@ -38,7 +38,7 @@ export default class BeastRepository {
     console.log(beastCategory);
     const [rows] = await dbConfig.query(
       ` SELECT
-          m.id
+          m.id,
           m.name,
           m.hability,
           m.description
@@ -47,7 +47,6 @@ export default class BeastRepository {
         WHERE c.name = ?;`,
       [beastCategory]
     );
-    console.log(rows);
     return rows;
   }
 }
